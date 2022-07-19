@@ -1,1 +1,4 @@
-# imersao-java-alura
+# Imersão Java Alura
+
+
+AULA 01 - CONSUMINDO UMA API DE FILMES COM JAVA
