@@ -1,6 +1,5 @@
 package application;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
@@ -37,15 +36,14 @@ public class App {
 
 		// exibir e manipular os dados
 		var gerador = new GeradoraDeFigurinhas();
-		for (Map<String, String> filme : movieList) {
+		for (int i = 0; i < 10; i++) {
 
-			String urlImagem = filme.get("image");
-			//urlImagem.split("._V1_UX128_CR0,3,128,176_AL_.jpg");
-			//urlImagem.split("._V1_UX128_CR0,1,128,176_AL_.jpg");
+			Map<String, String> movie = movieList.get(i);
+			
+			String imageUrl = movie.get("image").replaceAll("(@+)(.*).jpg$", "$1.jpg");
+			String titulo = movie.get("title");
 
-			String titulo = filme.get("title");
-
-			InputStream inputStream = new URL(urlImagem).openStream();
+			InputStream inputStream = new URL(imageUrl).openStream();
 			String nomeArquivo = titulo + ".png";
 
 			gerador.createSticker(inputStream, nomeArquivo);
